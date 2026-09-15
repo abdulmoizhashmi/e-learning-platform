@@ -1,0 +1,1 @@
+export { classService } from './domainService'

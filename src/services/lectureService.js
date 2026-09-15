@@ -1,0 +1,1 @@
+export { lectureService } from './domainService'
