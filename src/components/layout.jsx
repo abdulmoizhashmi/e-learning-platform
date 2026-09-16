@@ -23,6 +23,7 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useApp } from "../context/AppContext";
 import { Avatar, cn } from "./common";
+import { Logo } from "./Logo";
 const nav = {
   admin: [
     ["Dashboard", "/admin/dashboard", LayoutDashboard],
@@ -64,12 +65,7 @@ function Sidebar({ collapsed, onCollapse }) {
     >
       <div className="mb-5 flex items-center justify-between px-2">
         <Link to="/" className="flex items-center gap-2">
-          <img src="/learnflow-logo.svg" alt="LearnFlow" className="h-9 w-11 object-contain" />
-          {!collapsed && (
-            <span className="text-lg font-extrabold text-ink dark:text-white">
-              LearnFlow
-            </span>
-          )}
+          <Logo variant={collapsed ? "mark" : "full"} className="text-lg" />
         </Link>
         <button
           onClick={onCollapse}
@@ -82,13 +78,13 @@ function Sidebar({ collapsed, onCollapse }) {
           )}
         </button>
       </div>
-      <div className="mb-4 rounded-xl bg-indigo-50 p-3 dark:bg-indigo-950/50">
+      <div className="mb-4 rounded-xl bg-[var(--lf-mint)] p-3 dark:bg-[var(--lf-mint)]">
         {!collapsed ? (
           <>
-            <p className="text-[10px] font-bold uppercase tracking-wider text-indigo-500">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-primary">
               Workspace
             </p>
-            <p className="mt-1 text-sm font-bold text-indigo-900 dark:text-indigo-200">
+            <p className="mt-1 text-sm font-bold text-ink dark:text-white">
               {user?.title}
             </p>
           </>
@@ -107,8 +103,8 @@ function Sidebar({ collapsed, onCollapse }) {
               cn(
                 "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition",
                 isActive
-                  ? "bg-primary text-white shadow-claySm"
-                  : "text-slate-600 hover:bg-indigo-50 hover:text-primary dark:text-slate-300 dark:hover:bg-slate-800",
+                  ? "bg-[var(--lf-primary-soft)] text-primary dark:bg-[var(--lf-mint)] dark:text-[var(--lf-primary)]"
+                  : "text-slate-600 hover:bg-[var(--lf-primary-soft)] hover:text-primary dark:text-slate-300 dark:hover:bg-slate-800",
                 collapsed && "justify-center",
               )
             }
@@ -254,8 +250,7 @@ export function PublicNav() {
           to="/"
           className="flex items-center gap-2 font-extrabold text-ink"
         >
-          <img src="/learnflow-logo.svg" alt="LearnFlow" className="h-10 w-12 object-contain" />
-          LearnFlow
+          <Logo className="text-lg" />
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-semibold text-muted md:flex">
           <Link to="/features">Features</Link>

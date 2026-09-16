@@ -1,3 +1,4 @@
+import {Logo} from '../components/Logo'
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Sparkles, ArrowLeft, CheckCircle2 } from "lucide-react";
@@ -12,8 +13,7 @@ function AuthFrame({ children, title, subtitle }) {
           to="/"
           className="mb-7 flex justify-center gap-2 text-lg font-extrabold text-ink"
         >
-          <img src="/learnflow-logo.svg" alt="LearnFlow" className="h-10 w-12 object-contain" />
-          LearnFlow
+          <Logo className="text-lg" />
         </Link>
         <Card className="p-6 sm:p-8">
           <h1 className="text-2xl font-extrabold text-ink dark:text-white">
