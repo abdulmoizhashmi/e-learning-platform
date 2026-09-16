@@ -1,0 +1,19 @@
+export function Logo({variant='full', className=''}) {
+  const mark = (
+    <svg className={variant === 'mark' ? className : 'h-9 w-9 shrink-0'} viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <g stroke="#17618A" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="6.5" y="7" width="51" height="37" rx="5.5" />
+        <path d="M7 37h50" />
+        <path d="M28 44v7c0 5-3.5 8.5-8 10h24c-4.5-1.5-8-5-8-10v-7" />
+        <path d="M21 61h22" />
+        <path d="m16.5 20 15.5-7 15.5 7-15.5 7-15.5-7Z" />
+        <path d="M23 23v5c2.4 2.6 5.6 3.8 9 3.8s6.6-1.2 9-3.8v-5" />
+      </g>
+      <path d="M47.5 20v8" stroke="#C9A34D" strokeWidth="2.3" strokeLinecap="round" />
+      <path d="M47.5 26c-2.2 1.1-3.4 3-3.4 5.2 0 2.4 1.5 4.4 3.4 5.3 1.9-.9 3.4-2.9 3.4-5.3 0-2.2-1.2-4.1-3.4-5.2Z" fill="#C9A34D" />
+      <path d="M44.6 35.5 43.2 41l3-1.6 1.3 2.2 1.3-2.2 3 1.6-1.4-5.5" fill="#C9A34D" />
+    </svg>
+  )
+  if (variant === 'mark') return mark
+  return <span className={`inline-flex items-center gap-2 font-extrabold tracking-tight text-ink dark:text-white ${className}`}>{mark}<span>LearnFlow</span></span>
+}
